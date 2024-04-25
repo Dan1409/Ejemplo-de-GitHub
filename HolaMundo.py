@@ -1,17 +1,11 @@
-def suma_recursiva(a, b):
-    if b == 0:
-        return a
+def suma_lista(lista):
+    if len(lista) == 0:
+        return 0
     else:
-        return suma_recursiva(a ^ b, (a & b) << 1)
-
-def resta_recursiva(a, b):
-    if b == 0:
-        return a
-    else:
-        return resta_recursiva(a ^ b, (~a & b) << 1)
+        return lista[0] + suma_lista(lista[1:])
 
 # Ejemplo de uso
-num1 = 10
-num2 = 5
-print("Suma de", num1, "+", num2, "=", suma_recursiva(num1, num2))
-print("Resta de", num1, "-", num2, "=", resta_recursiva(num1, num2))
+numeros = [1, 2, 3, 4, 5]
+resultado = suma_lista(numeros)
+print(f"La suma de los elementos en la lista es: {resultado}")
+
